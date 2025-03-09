@@ -14,7 +14,7 @@ private int generacion;
 private boolean legendario;
 
 
-    public Pokemon(String nombre, int numPokedex, String tip1, String tip2, String clasificacion, double altura, double peso, List<String> habilidade, int generacion, boolean legendario ){
+    public Pokemon(String nombre, int numPokedex, String tip1, String tip2, String clasificacion, double altura, double peso, List<String> habilidades, int generacion, boolean legendario ){
         this.nombre = nombre;
         this.numPokedex = numPokedex;
         this.tip1 = tip1;
