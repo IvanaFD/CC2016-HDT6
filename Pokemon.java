@@ -1,21 +1,20 @@
-import java.util.List;
 
 public class Pokemon {
 
-private String nombre;
+private String nombreP;
 private int numPokedex;
 private String tip1;
 private String tip2;
 private String clasificacion;
 private double altura;
 private double peso;
-private List<String> habilidades;
+private String habilidades;
 private int generacion;
-private boolean legendario;
+private String legendario;
 
 
-    public Pokemon(String nombre, int numPokedex, String tip1, String tip2, String clasificacion, double altura, double peso, List<String> habilidades, int generacion, boolean legendario ){
-        this.nombre = nombre;
+    public Pokemon(String nombreP, int numPokedex, String tip1, String tip2, String clasificacion, double altura, double peso, String habilidades, int generacion, String legendario ){
+        this.nombreP = nombreP;
         this.numPokedex = numPokedex;
         this.tip1 = tip1;
         this.tip2 = tip2;
@@ -29,7 +28,7 @@ private boolean legendario;
     }
 
     public String getNombre() {
-        return nombre;
+        return nombreP;
     }
 
     public int getNumPokedex() {
@@ -56,7 +55,7 @@ private boolean legendario;
         return peso;
     }
 
-    public List<String> getHabilidades() {
+    public String getHabilidades() {
         return habilidades;
     }
 
@@ -64,22 +63,13 @@ private boolean legendario;
         return generacion;
     }
 
-    public boolean isLegendario() {
+    public String isLegendario() {
         return legendario;
     }
 
     @Override
     public String toString() {
-        return "Nombre: " + nombre + "\n" +
-        "Num Pokedex: " + numPokedex + "\n" +
-        "Tipo 1: " + tip1 + "\n" +
-        "Tipo 2: " + tip2 + "\n" +
-        "Clasificacion: " + clasificacion + "\n" +
-        "Altura: " + altura + "m" + "\n" +
-        "Peso: " + peso + "Kg" + "\n" +
-        "Habilidades: " + habilidades + "\n" +
-        "Generacion: " + generacion + "\n" +
-        "Legendario: " + legendario + "\n";
+        return "Nombre: " + nombreP +" --" + " Num Pokedex: " + numPokedex + " --" +"  Tipo 1: " + tip1 + " --" +" Tipo 2: " + tip2 + " --" +" Clasificacion: " + clasificacion + " --" +" Altura: " + altura + "m" + " --" +" Peso: " + peso + "Kg" + " --" +" Habilidades: " + habilidades + " --" +" Generacion: " + generacion + " --" +" Legendario: " + legendario ;
     }
 
 
