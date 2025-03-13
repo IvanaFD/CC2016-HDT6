@@ -69,7 +69,7 @@ private String legendario;
 
     @Override
     public String toString() {
-        return "Nombre: " + nombreP +" --" + " Num Pokedex: " + numPokedex + " --" +"  Tipo 1: " + tip1 + " --" +" Tipo 2: " + tip2 + " --" +" Clasificacion: " + clasificacion + " --" +" Altura: " + altura + "m" + " --" +" Peso: " + peso + "Kg" + " --" +" Habilidades: " + habilidades + " --" +" Generacion: " + generacion + " --" +" Legendario: " + legendario ;
+        return "Nombre: " + nombreP +" --" + " Num Pokedex: " + numPokedex + " --" +"  Tipo 1: " + tip1 + " --" +" Tipo 2: " + tip2 + " --" +" Clasificacion: " + clasificacion + " --" +" Altura: " + altura + "m" + " --" +" Peso: " + peso + "Kg" + " --" +" Habilidades: " + habilidades + " --" +" Generacion: " + generacion + " --" +" Legendario: " + legendario + " \n" ;
     }
 
 

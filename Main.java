@@ -4,7 +4,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
-        Map<String, Pokemon> PokemonData = DocumentController.cargarDatos("PokemonData.csv") ;
+        Map<String, Pokemon> pokemonData = DocumentController.cargarDatos("PokemonData.csv") ;
+        ControlPokemon collection = new ControlPokemon(pokemonData);
 
         System.out.println("                                  ,'\\\r\n" + //
                                         "    _.----.        ____         ,'  _\\   ___    ___     ____\r\n" + //
@@ -22,8 +23,7 @@ public class Main {
 
        
         while (true){
-            System.out.println("\n-------------------");
-            
+
             System.out.println("1. Guardar un Pokemon en el mapa");
             System.out.println("2. Buscar un Pokemon en el CSV");
             System.out.println("3. Prueba map pokemonDta");
@@ -36,8 +36,19 @@ public class Main {
 
                 case 1: 
                 System.out.println("1. Guardar Pokemon");
+                System.out.println("Seleccione la implementación de Map:");
+                System.out.println("1. HashMap");
+                System.out.println("2. TreeMap");
+                System.out.println("3. LinkedHashMap");
+                int mapOption = scanner.nextInt();
+                scanner.nextLine(); 
+                collection.selecImplementacion(mapOption);
+
+                
+                System.out.println("Ingrese el nombre del Pokemon que desea agregar:");
+                String pokemonName = scanner.nextLine().trim();
+                collection.agregarCollection(pokemonName);
                 break;
-                    
                 
                 case 2: 
                 System.out.println("Buscar un Pokemon");
@@ -45,7 +56,7 @@ public class Main {
                     String buscarNombre = scanner.nextLine().trim();
 
                     
-                    Pokemon pokemonEncontrado = PokemonData.get(buscarNombre.toLowerCase());
+                    Pokemon pokemonEncontrado = pokemonData.get(buscarNombre.toLowerCase());
 
                     if (pokemonEncontrado != null) {
                         System.out.println("Datos de el Pokemon:");
@@ -58,13 +69,10 @@ public class Main {
 
                   
                 case 3: 
-                System.out.println("Mostrando todos los Pokemons de la data:");
-                    for (Map.Entry<String, Pokemon> entry : PokemonData.entrySet()) {
-                        Pokemon pokemon = entry.getValue();
-                        System.out.println(pokemon);
-                        
-                    }
-                    break;
+                System.out.println("Guardar Pokemon en coleccion personal");
+                
+                
+                
 
                 case 4: 
                 System.out.println("1. Mostra Pokemones por tipo 1 de Pokemon Data");
@@ -78,6 +86,21 @@ public class Main {
                 System.out.println("Hasta Pronto ");
                 scanner.close();
                 return;
+
+                case 7:
+                System.out.println("Test de map coleccion");
+                Map<String, Pokemon> userCollection = collection.getCollection(); 
+
+                if (userCollection == null || userCollection.isEmpty()) {
+                    System.out.println("Tu colección está vacía.");
+                } else {
+                    System.out.println("Pokémon en tu colección:");
+                    for (Map.Entry<String, Pokemon> entry : userCollection.entrySet()) {
+                        Pokemon pokemon = entry.getValue();
+                        System.out.println(pokemon); 
+                     }           
+                }
+                break;
                     
             }
         }
