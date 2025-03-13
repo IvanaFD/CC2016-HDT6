@@ -24,9 +24,9 @@ public class Main {
        
         while (true){
 
-            System.out.println("1. Guardar un Pokemon en el mapa");
-            System.out.println("2. Buscar un Pokemon en el CSV");
-            System.out.println("3. Prueba map pokemonDta");
+            System.out.println("\n1. Guardar un Pokemon en la coleccion personal");
+            System.out.println("2. Buscar un Pokemon en la data");
+            System.out.println("3. Buscar un pokemon por tipo 1 en coleccion personal");
             System.out.println("6. Salir");
             System.out.print("Elige una opción: ");
             int opcion = scanner.nextInt();
@@ -35,11 +35,11 @@ public class Main {
             switch(opcion){
 
                 case 1: 
-                System.out.println("1. Guardar Pokemon");
+                System.out.println("\n1. Guardar Pokemon\n");
                 System.out.println("Seleccione la implementación de Map:");
                 System.out.println("1. HashMap");
                 System.out.println("2. TreeMap");
-                System.out.println("3. LinkedHashMap");
+                System.out.println("3. LinkedHashMap\n");
                 int mapOption = scanner.nextInt();
                 scanner.nextLine(); 
                 collection.selecImplementacion(mapOption);
@@ -69,8 +69,9 @@ public class Main {
 
                   
                 case 3: 
-                System.out.println("Guardar Pokemon en coleccion personal");
-                
+                System.out.println("Mostrar pokemones de coleccion por tipo 1");
+                collection.coleccionPorTipo1();
+                break;
                 
                 
 

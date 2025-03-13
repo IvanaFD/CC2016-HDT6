@@ -1,7 +1,5 @@
 import java.util.*;
 
-import java.util.Map;
-
 public class ControlPokemon {
     private Map<String, Pokemon> collection;
     private Map<String, Pokemon> pokemonData;
@@ -33,12 +31,31 @@ public class ControlPokemon {
         if (pokemon == null) {
             System.out.println("Error: El Pokemon no existe en la data.");
         } else if (collection.containsKey(pokemonName.toLowerCase())) {
-            System.out.println("Error: El Pokemon ya está en tu colección.");
+            System.out.println("Error: El Pokemon ya esta en tu colección.");
         } else {
             collection.put(pokemonName.toLowerCase(), pokemon);
             System.out.println("Pokemon agregado a la colección: " + pokemonName);
         }
     }
+
+    public void coleccionPorTipo1() {
+    if (collection == null || collection.isEmpty()) {
+        System.out.println("la coleccion no tiene pokemones.");
+        return;
+    }
+
+    
+    List<Pokemon> listaPokemon = new ArrayList<>(collection.values());
+
+    
+    listaPokemon.sort(Comparator.comparing(Pokemon::getTip1));
+
+   
+    
+    for (Pokemon pokemon : listaPokemon) {
+        System.out.println("Nombre: " + pokemon.getNombre() + ", Tipo 1: " + pokemon.getTip1());
+    }
+}
 
 
     
