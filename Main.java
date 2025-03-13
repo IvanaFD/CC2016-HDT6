@@ -27,6 +27,8 @@ public class Main {
             System.out.println("\n1. Guardar un Pokemon en la coleccion personal");
             System.out.println("2. Buscar un Pokemon en la data");
             System.out.println("3. Buscar un pokemon por tipo 1 en coleccion personal");
+            System.out.println("4. Mostrar pokemon por tipo 1 en la Data");
+            System.out.println("5. Buscar Pokemones por habilidad en la Data");
             System.out.println("6. Salir");
             System.out.print("Elige una opción: ");
             int opcion = scanner.nextInt();
@@ -52,7 +54,7 @@ public class Main {
                 
                 case 2: 
                 System.out.println("Buscar un Pokemon");
-                    System.out.println("Ingrese el nombre del pokemon que busca");
+                    System.out.println("Ingrese el nombre del pokemon que busca: ");
                     String buscarNombre = scanner.nextLine().trim();
 
                     
@@ -76,32 +78,22 @@ public class Main {
                 
 
                 case 4: 
-                System.out.println("1. Mostra Pokemones por tipo 1 de Pokemon Data");
+                collection.dataPorTipo1();
                 break;
 
                 case 5: 
-                System.out.println("Buscar Pokemons por habilidades del Pokemon Data");
+                System.out.println("Ingrese la habilidad que desea buscar:");
+                String habilidad = scanner.nextLine().trim();
+                collection.buscarHabilidad(habilidad);
                 break;
+               
 
                 case 6:
                 System.out.println("Hasta Pronto ");
                 scanner.close();
                 return;
 
-                case 7:
-                System.out.println("Test de map coleccion");
-                Map<String, Pokemon> userCollection = collection.getCollection(); 
-
-                if (userCollection == null || userCollection.isEmpty()) {
-                    System.out.println("Tu colección está vacía.");
-                } else {
-                    System.out.println("Pokémon en tu colección:");
-                    for (Map.Entry<String, Pokemon> entry : userCollection.entrySet()) {
-                        Pokemon pokemon = entry.getValue();
-                        System.out.println(pokemon); 
-                     }           
-                }
-                break;
+                
                     
             }
         }

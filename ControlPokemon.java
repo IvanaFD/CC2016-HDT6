@@ -39,24 +39,47 @@ public class ControlPokemon {
     }
 
     public void coleccionPorTipo1() {
-    if (collection == null || collection.isEmpty()) {
-        System.out.println("la coleccion no tiene pokemones.");
-        return;
+        if (collection == null || collection.isEmpty()) {
+            System.out.println("la coleccion no tiene pokemones.");
+            return;
+        }
+        List<Pokemon> listaPokemon = new ArrayList<>(collection.values());
+        listaPokemon.sort(Comparator.comparing(Pokemon::getTip1));
+        for (Pokemon pokemon : listaPokemon) {
+            System.out.println("Nombre: " + pokemon.getNombre() + ", Tipo 1: " + pokemon.getTip1());
+        }
+
+
     }
 
-    
-    List<Pokemon> listaPokemon = new ArrayList<>(collection.values());
+    public void dataPorTipo1() {
+        if (pokemonData == null || pokemonData.isEmpty()) {
+            System.out.println("No hay Pokémon en la data.");
+            return;
+        }
 
-    
-    listaPokemon.sort(Comparator.comparing(Pokemon::getTip1));
-
-   
-    
-    for (Pokemon pokemon : listaPokemon) {
-        System.out.println("Nombre: " + pokemon.getNombre() + ", Tipo 1: " + pokemon.getTip1());
+        List<Pokemon> listaPokemon = new ArrayList<>(pokemonData.values());
+        listaPokemon.sort(Comparator.comparing(Pokemon::getTip1));
+        System.out.println("Todos los Pokémon (ordenados por Tipo 1):");
+        for (Pokemon pokemon : listaPokemon) {
+            System.out.println("Nombre: " + pokemon.getNombre() + ", Tipo 1: " + pokemon.getTip1());
+        }
     }
-}
+
+    public void buscarHabilidad(String habilidad) {
+        if (pokemonData == null || pokemonData.isEmpty()) {
+            System.out.println("No hay Pokémon en la data.");
+            return;
+        }
+
+        System.out.println("Pokémon con la habilidad '" + habilidad + "':");
+        for (Pokemon pokemon : pokemonData.values()) {
+            if (pokemon.getHabilidades().toLowerCase().contains(habilidad.toLowerCase())) {
+                System.out.println("Nombre: " + pokemon.getNombre());
+            }
+        }
+    }
 
 
-    
+ 
 }
