@@ -1,7 +1,26 @@
+
+/**
+ * Universidad del Valle de Guatemala
+ * Algoritmos y Estructuras de Datos
+ * Hoja de Trabajo 6
+ * Ivana Figueroa - 24785
+ * 
+ * Clase Main
+ * contiene el metodo main y el menu de opciones
+ */
+
 import java.io.IOException;
 import java.util.Map;
 import java.util.Scanner;
 public class Main {
+
+     /**
+     * Metodo principal que ejecuta el programa.
+     *
+     * @param args Argumentos de la linea de comandos (no se utilizan).
+     * @throws IOException Si ocurre un error al leer el archivo CSV.
+     */
+  
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         Map<String, Pokemon> pokemonData = DocumentController.cargarDatos("PokemonData.csv") ;

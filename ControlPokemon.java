@@ -1,9 +1,25 @@
+/**
+ * Universidad del Valle de Guatemala
+ * Algoritmos y Estructuras de Datos
+ * Hoja de Trabajo 6
+ * Ivana Figueroa - 24785
+ * 
+ * Clase ControlPokemon
+ * se encarga de los datos de los pokemones tanto del CSV con de la coleccion personal del usuario
+ * 
+ */
+
 import java.util.*;
 
 public class ControlPokemon {
     private Map<String, Pokemon> collection;
     private Map<String, Pokemon> pokemonData;
 
+    /**
+     * Constructor de la clase ControlPokemon.
+     *
+     * @param pokemonData Un Map con todos los pokemones de la base del CSV
+     */
     public ControlPokemon(Map<String, Pokemon> pokemonData) {
         this.pokemonData = pokemonData;
     }
@@ -11,6 +27,12 @@ public class ControlPokemon {
     public Map<String, Pokemon> getCollection() {
         return collection;
     }
+
+    /**
+     * Selecciona la implementacion con la cual guardara el pokemon en la coleccion personal
+     *
+     * @param option La opcion de la implememtacion.
+     */
     public void selecImplementacion(int opcion) {
         if (collection == null) { 
             this.collection = FactoryMap.crearMap(opcion);
@@ -20,7 +42,11 @@ public class ControlPokemon {
         }
     }
 
-    
+    /**
+     * Agrega un pokemon a la coleccion del usuario.
+     *
+     * @param pokemonName El nombre del pokemon que agregara.
+     */
     public void agregarCollection(String pokemonName) {
         if (collection == null) {
             System.out.println("Primero seleccione una implementacion de Map.");
@@ -38,6 +64,10 @@ public class ControlPokemon {
         }
     }
 
+
+    /**
+     * Muestra los pokemones en la coleccion del usuario, ordenados por su tipo1.
+     */
     public void coleccionPorTipo1() {
         if (collection == null || collection.isEmpty()) {
             System.out.println("la coleccion no tiene pokemones.");
@@ -52,6 +82,10 @@ public class ControlPokemon {
 
     }
 
+
+    /**
+     * Muestra los pokemones de la base de datos, ordenados por su tipo1.
+     */
     public void dataPorTipo1() {
         if (pokemonData == null || pokemonData.isEmpty()) {
             System.out.println("No hay Pokémon en la data.");
@@ -66,6 +100,12 @@ public class ControlPokemon {
         }
     }
 
+
+    /**
+     * Busca y muestra los pokemones que tienen la habilidad especificada.
+     *
+     * @param habilidad La habilidad que se desea buscar.
+     */
     public void buscarHabilidad(String habilidad) {
         if (pokemonData == null || pokemonData.isEmpty()) {
             System.out.println("No hay Pokémon en la data.");

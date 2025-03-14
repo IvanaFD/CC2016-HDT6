@@ -1,10 +1,27 @@
+
+/**
+ * Universidad del Valle de Guatemala
+ * Algoritmos y Estructuras de Datos
+ * Hoja de Trabajo 6
+ * Ivana Figueroa - 24785
+ * 
+ * Clase DcumentController
+ * carga los datos del CSV y guardar los pokemones
+ */
+
 import java.io.*;
 import java.util.*;
 
 
 public class DocumentController{
     
-    
+    /**
+     * Carga los datos de los pokemones desde un archivo CSV y los almacena en un Map.
+     *
+     * @param filename El nombre del archivo CSV que contiene los datos de los pokemones.
+     * @return Un Map donde la clave es el nombre del pokemon y el valor es el objeto pokemon.
+     * @throws IOException Si ocurre un error al leer el archivo CSV.
+     */
     public static Map<String, Pokemon> cargarDatos(String filename)throws IOException{
         Map<String, Pokemon> data = new HashMap<>();
        
